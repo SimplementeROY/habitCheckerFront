@@ -10,6 +10,7 @@ export default function WeeklyAnalysisChart() {
         return <div>Esto no se ha cargado</div>
     }
 
+
     if (isLoading) {
         return <section className="weekly-anaylisis-chart" style={{ justifyContent: "center", alignItems: "center" }}>
             <Loader></Loader>

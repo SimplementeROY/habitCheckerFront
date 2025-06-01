@@ -10,6 +10,7 @@
     box-shadow: var(--box-shadow);
     grid-area: WeeklyAnalysisChart;
 
+
     h2 {
         font-weight: 500;
         font-size: 1.5rem;
