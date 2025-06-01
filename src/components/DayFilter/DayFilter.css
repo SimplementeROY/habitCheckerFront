@@ -1,0 +1,73 @@
+.day-filter {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    flex-direction: row-reverse;
+    position: relative;
+    gap: 0.25rem;
+
+    .date {
+        cursor: pointer;
+        flex: 0 0 calc(100% / 7 - 0.25rem);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 0.7rem;
+        background-color: var(--background-color);
+        border: 1px solid #dfdfdf;
+        transition: 0.2s;
+
+        &:hover {
+            box-shadow: var(--box-shadow)
+        }
+
+        input {
+            display: none;
+        }
+
+        span {
+            align-content: center;
+            display: inline-block;
+            padding: 0.5rem 0;
+        }
+
+        span:first-child {
+            width: 100%;
+            font-size: 0.8rem;
+            background-color: hsl(var(--pastel-purple));
+            border-radius: 0.325rem 0.325rem 0 0;
+        }
+
+        span:nth-child(2) {
+            font-weight: 500;
+        }
+
+    }
+}
+
+
+.date.today {
+    span:first-child {
+        background-color: hsl(var(--pastel-teal));
+
+    }
+
+}
+
+
+.date.selected {
+
+    span:first-child {
+        background-color: hsl(var(--pastel-red));
+    }
+}
+
+
+/* Vista ordenador */
+@media (min-width: 62.5rem) {
+    .day-filter .date {
+        /* flex-direction: row; */
+        justify-content: space-around;
+        /* padding: 0 0 0.8rem 0; */
+    }
+}

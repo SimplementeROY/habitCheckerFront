@@ -1,0 +1,15 @@
+.quote {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    small {
+        display: block;
+        text-align: right;
+        font-size: 0.8rem;
+        color: grey;
+    }
+}

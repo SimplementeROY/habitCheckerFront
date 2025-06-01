@@ -1,0 +1,47 @@
+.header {
+    padding: 1rem;
+
+    background-color: var(--background-color);
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        display: none;
+    }
+
+    button {
+        background-color: var(--background-color);
+
+        i {
+            font-size: 1rem;
+        }
+    }
+
+}
+
+/* Vista ordenador */
+@media (min-width: 62.5rem) {
+
+    .header {
+        border-radius: 1rem;
+
+        .container {
+            align-items: center;
+        }
+
+
+        nav {
+            display: block;
+
+            ul {
+                margin: 0;
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
+}

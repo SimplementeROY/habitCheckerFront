@@ -1,0 +1,27 @@
+@import url('../../index.css');
+
+.completion-rate-card {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    grid-area: completionRate;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    p {
+        color: hsl(var(--pastel-red));
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    small {
+        font-size: 0.8rem;
+        color: grey;
+    }
+}

@@ -1,0 +1,56 @@
+@import url('../../index.css');
+
+.habit-stat-card {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 0 0 100%;
+    box-shadow: var(--box-shadow);
+
+    h3 {
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    >div:nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+
+        .streak p {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: hsl(var(--pastel-orange));
+        }
+
+        .max-streak p {
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-align: right;
+        }
+
+        div small {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+    }
+
+    >div:last-child {
+        display: flex;
+        justify-content: space-between;
+
+        p:last-child {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: hsl(var(--pastel-green));
+        }
+    }
+}
+
+@media (min-width: 62.5rem) {
+    .habit-stat-card {
+        flex: 0 0 calc(33% - 0.5rem);
+    }
+}

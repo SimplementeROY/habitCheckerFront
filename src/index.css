@@ -1,0 +1,117 @@
+@import url('./reset.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: white;
+    --primary-font: "Poppins", serif;
+    --background: hsl(350, 100%, 98%);
+    --foreground: hsl(240, 10%, 20%);
+
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(240, 10%, 20%);
+
+    --background-color: hsl(0, 0%, 100%);
+
+    --popover: hsl(0, 0%, 100%);
+    --popover-foreground: hsl(240, 10%, 20%);
+
+    --primary: hsl(345, 100%, 76%);
+    --primary-foreground: hsl(355, 100%, 97%);
+
+    --secondary: hsl(210, 100%, 75%);
+    --secondary-foreground: hsl(210, 40%, 98%);
+
+    --muted: hsl(240, 5%, 96%);
+    --muted-foreground: hsl(240, 4%, 46%);
+
+    --accent: hsl(35, 100%, 64%);
+    --accent-foreground: hsl(35, 100%, 20%);
+
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(0, 0%, 98%);
+
+    --border-color-blue: rgba(100, 149, 237, 0.3);
+    --input: hsl(240, 6%, 90%);
+    --ring: hsl(345, 100%, 76%);
+
+    --radius: 1rem;
+
+    --pastel-red: 345, 100%, 76%;
+    --pastel-red-hover: hsl(345, 100%, 66%);
+
+    --pastel-blue: 210, 100%, 75%;
+    --pastel-blue-hover: 210, 100%, 65%;
+
+    --pastel-orange: 35, 100%, 64%;
+    --pastel-orange-hover: 35, 100%, 54%;
+
+    --pastel-green: 150, 60%, 65%;
+    --pastel-green-hover: 150, 60%, 55%;
+
+    --pastel-purple: 270, 100%, 80%;
+    --pastel-purple-hover: 270, 100%, 70%;
+
+    --pastel-yellow: 50, 100%, 75%;
+    --pastel-yellow-hover: 50, 100%, 65%;
+
+    --pastel-pink: 320, 100%, 85%;
+    --pastel-pink-hover: 320, 100%, 75%;
+
+    --pastel-teal: 170, 80%, 70%;
+    --pastel-teal-hover: 170, 80%, 60%;
+
+    --pastel-lavender: 240, 100%, 85%;
+    --pastel-lavender-hover: 240, 100%, 75%;
+
+    --box-shadow: 0 15px 40px rgba(3, 3, 3, 0.12);
+}
+
+.dark {
+    --background: hsl(240, 10%, 10%);
+    --foreground: hsl(0, 0%, 98%);
+
+    --card: hsl(240, 10%, 12%);
+    --card-foreground: hsl(0, 0%, 98%);
+
+    --popover: hsl(240, 10%, 12%);
+    --popover-foreground: hsl(0, 0%, 98%);
+
+    --primary: hsl(345, 70%, 70%);
+    --primary-foreground: hsl(355, 100%, 97%);
+
+    --secondary: hsl(210, 70%, 70%);
+    --secondary-foreground: hsl(210, 40%, 98%);
+
+    --muted: hsl(240, 5%, 20%);
+    --muted-foreground: hsl(240, 5%, 65%);
+
+    --accent: hsl(35, 70%, 60%);
+    --accent-foreground: hsl(35, 100%, 97%);
+
+    --destructive: hsl(0, 70%, 60%);
+    --destructive-foreground: hsl(0, 0%, 98%);
+
+    --border: hsl(240, 5%, 26%);
+    --input: hsl(240, 5%, 26%);
+    --ring: hsl(345, 70%, 70%);
+}
+
+footer {
+    display: none;
+}
+
+@media (min-width: 62.5rem) {
+    footer {
+        box-shadow: var(--box-shadow);
+        display: block;
+        text-align: center;
+        align-content: center;
+        background-color: var(--background-color);
+        border-radius: 1rem;
+
+        p {
+            padding: 1rem;
+        }
+    }
+}

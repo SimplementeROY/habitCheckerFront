@@ -1,0 +1,17 @@
+@import url('../../index.css');
+
+.completion-chart {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: CompletionTrend;
+    box-shadow: var(--box-shadow);
+
+    h2 {
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+}

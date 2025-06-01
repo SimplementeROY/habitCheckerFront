@@ -1,0 +1,29 @@
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr 1fr auto;
+    grid-template-areas:
+        "completionRate totalCompletions"
+        "CompletionTrend CompletionTrend"
+        "WeeklyAnalysisChart WeeklyAnalysisChart"
+        "habitStats habitStats";
+    gap: 1rem;
+    height: 100%;
+}
+
+/* Vista ordenador */
+@media (min-width: 62.5rem) {
+    .statistics {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "completionRate totalCompletions"
+            "CompletionTrend WeeklyAnalysisChart"
+            "habitStats habitStats";
+        gap: 1rem;
+        height: 100%;
+    }
+
+
+}

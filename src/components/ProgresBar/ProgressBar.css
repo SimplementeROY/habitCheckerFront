@@ -1,0 +1,32 @@
+@import url('../../index.css');
+
+.progress-bar-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    div:first-child {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: hsl(var(--pastel-blue));
+    transition: width 0.3s ease-in-out;
+}

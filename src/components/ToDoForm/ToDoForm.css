@@ -1,0 +1,36 @@
+@import url('../../index.css');
+
+.todo-form {
+    display: flex;
+    gap: 0.25rem;
+
+    input {
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        text-align: left;
+        width: 100%;
+        border: 2px solid hsl(var(--pastel-blue));
+        font-family: var(--primary-font);
+        font-size: 1rem;
+
+        &:focus {
+            border: 2px solid hsl(var(--pastel-blue));
+        }
+
+    }
+
+    button {
+        background-color: hsl(var(--pastel-blue));
+        color: white;
+        font-family: var(--primary-font);
+        font-weight: bold;
+        padding: 0.5rem 2rem;
+        border-radius: 0.5rem;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: hsl(var(--pastel-blue-hover));
+        }
+    }
+
+}
