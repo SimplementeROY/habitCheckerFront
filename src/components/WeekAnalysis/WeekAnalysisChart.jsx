@@ -1,6 +1,6 @@
 import { useWeeklyAnalisis } from "../../hooks/useWeeklyAnalisis"
 import { BarChart, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer, CartesianGrid } from "recharts"
-import './WeeklyAnalysisChart.css'
+import './WeekAnalysisChart.css'
 import Loader from "../Loader/Loader";
 
 export default function WeeklyAnalysisChart() {
