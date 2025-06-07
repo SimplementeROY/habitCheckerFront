@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useForm } from "../../context/FormContext";
-import './HabitForm.css'
+import './HabitForm.css';
 import { useHabits } from "../../context/HabitsContext";
 import { DAYS_OF_WEEK } from "../../variables/daysOfTheWeek";
 
 export default function HabitForm() {
     const { isOpen, closeForm, editHabit } = useForm();
-    const { updateHabit, addHabit } = useHabits()
+    const { updateHabit, addHabit } = useHabits();
 
-    const [habitData, setHabitData] = useState({ name: '', time: '', days: [] })
+    const [habitData, setHabitData] = useState({ name: '', time: '', days: [] });
+    const [error, setError] = useState('');
+    const [touchedName, setTouchedName] = useState(false);
 
     useEffect(() => {
         if (editHabit) {
@@ -16,22 +18,38 @@ export default function HabitForm() {
                 name: editHabit.name || '',
                 time: editHabit.time || '',
                 days: editHabit.days || []
-            })
+            });
         }
-    }, [editHabit])
+    }, [editHabit]);
+
+    const isFormValid = () => {
+        return habitData.name.trim() !== '' && habitData.days.length > 0;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (editHabit.id) {
-            updateHabit(editHabit.id, habitData)
-        }
-        else {
-            addHabit(habitData)
+        if (!isFormValid()) {
+            if (!habitData.name.trim()) {
+                setError("Please enter a name for the habit.");
+                setTouchedName(true); // para forzar validación si se intentó enviar sin tocar el input
+            } else if (habitData.days.length === 0) {
+                setError("Please select at least one day.");
+            }
+            return;
         }
 
-        closeForm()
-    }
+        setError('');
+        setTouchedName(false);
+
+        if (editHabit?.id) {
+            updateHabit(editHabit.id, habitData);
+        } else {
+            addHabit(habitData);
+        }
+
+        closeForm();
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -39,23 +57,34 @@ export default function HabitForm() {
             ...habitData,
             [name]: value,
         });
+        if (error) setError('');
+    };
+
+    const handleBlur = (e) => {
+        if (e.target.name === 'name') {
+            setTouchedName(true);
+            if (!habitData.name.trim()) {
+                setError("Please enter a name for the habit.");
+            } else {
+                setError('');
+            }
+        }
     };
 
     const handleCheckboxChange = (day) => {
+        setError('');
 
         if (day === "allDays") {
-            // Seleccionar o deseleccionar todos los días
             setHabitData((prev) => ({
                 ...prev,
                 days: prev.days.length === DAYS_OF_WEEK.length ? [] : DAYS_OF_WEEK.map((day) => day.eng),
             }));
         } else {
-            // Manejar días individuales
             setHabitData((prev) => ({
                 ...prev,
                 days: prev.days.includes(day)
-                    ? prev.days.filter((d) => d !== day) // Deseleccionar día
-                    : [...prev.days, day], // Seleccionar día
+                    ? prev.days.filter((d) => d !== day)
+                    : [...prev.days, day],
             }));
         }
     };
@@ -65,7 +94,9 @@ export default function HabitForm() {
     return (
         <>
             <div className={isOpen ? "habit-form open" : "habit-form closed"}>
-                <button className="close-form-button" onClick={closeForm}>X</button>
+                <button className="close-form-button" onClick={closeForm}>
+                    <i className="fa-solid fa-xmark"></i>
+                </button>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="name">Name your habit</label>
@@ -75,9 +106,12 @@ export default function HabitForm() {
                             id="name"
                             value={habitData.name}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             placeholder="Drink 8 glasses of water"
-                            required
                         />
+                        {touchedName && habitData.name.trim() === '' && (
+                            <p className="error-message">Please enter a name for the habit.</p>
+                        )}
                     </div>
                     <div>
                         <p>Frequency</p>
@@ -88,7 +122,9 @@ export default function HabitForm() {
                                 value="allDays"
                                 id="allDays"
                                 onChange={() => handleCheckboxChange('allDays')}
+                                checked={habitData.days.length === 7}
                             />
+                            <span className="checkmark"></span>
                             Everyday
                         </label>
                         {DAYS_OF_WEEK.map((day) => (
@@ -100,15 +136,21 @@ export default function HabitForm() {
                                     checked={habitData.days.includes(day.eng)}
                                     onChange={() => handleCheckboxChange(day.eng)}
                                 />
+                                <span className="checkmark"></span>
                                 {day.eng}
                             </label>
                         ))}
                     </div>
-                    <button type="submit">{editHabit.id ? 'Actualizar' : 'Crear'} Hábito</button>
+
+                    {/* Mostrar errores generales (por ejemplo, sin días seleccionados) */}
+                    {!touchedName && error && <p className="error-message">{error}</p>}
+
+                    <button type="submit" disabled={!isFormValid()} className={!isFormValid() ? "disabled" : ""}>
+                        Confirm
+                    </button>
                 </form>
             </div>
             <div className={isOpen ? "overlay" : "overlay closed"} onClick={closeForm}></div>
         </>
-
-    )
+    );
 }

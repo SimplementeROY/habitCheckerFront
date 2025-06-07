@@ -77,12 +77,27 @@
     text-align: left;
 }
 
+
+
+.left-section>label {
+    text-align: left;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    /* flex-shrink: 0; */
+    cursor: pointer;
+
+
+}
+
 /* Custom checkbox */
 
 .left-section>label>input {
     opacity: 0;
     display: none;
 }
+
 
 .checkmark {
     width: 1rem;
@@ -94,34 +109,24 @@
     flex-shrink: 0;
 }
 
-.left-section>label {
-    text-align: left;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    position: relative;
-    /* flex-shrink: 0; */
-    cursor: pointer;
+.checkmark::after {
+    left: 50%;
+    top: 50%;
+    width: 3px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: translate(-50%, -55%) rotate(45deg);
+    content: "";
+    position: absolute;
+    display: none;
+}
 
-    .checkmark::after {
-        left: 50%;
-        top: 50%;
-        width: 3px;
-        height: 8px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        transform: translate(-50%, -55%) rotate(45deg);
-        content: "";
-        position: absolute;
-        display: none;
-    }
+input:checked~.checkmark {
+    background-color: hsl(var(--pastel-purple));
 
-    &>input:checked~.checkmark {
-        background-color: hsl(var(--pastel-purple));
-        ;
 
-        &::after {
-            display: block;
-        }
+    &::after {
+        display: block;
     }
 }
