@@ -68,7 +68,7 @@ export default function HabitForm() {
                 <button className="close-form-button" onClick={closeForm}>X</button>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Name your habit</label>
                         <input
                             type="text"
                             name="name"
