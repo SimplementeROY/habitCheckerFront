@@ -12,6 +12,16 @@ export default function HabitForm() {
     const [error, setError] = useState('');
     const [touchedName, setTouchedName] = useState(false);
 
+    // Reiniciar formulario al abrir (si es nuevo hábito)
+    useEffect(() => {
+        if (isOpen && !editHabit) {
+            setHabitData({ name: '', time: '', days: [] });
+            setError('');
+            setTouchedName(false);
+        }
+    }, [isOpen]);
+
+    // Cargar datos si se está editando
     useEffect(() => {
         if (editHabit) {
             setHabitData({
@@ -19,6 +29,8 @@ export default function HabitForm() {
                 time: editHabit.time || '',
                 days: editHabit.days || []
             });
+            setError('');
+            setTouchedName(false);
         }
     }, [editHabit]);
 
@@ -31,8 +43,8 @@ export default function HabitForm() {
 
         if (!isFormValid()) {
             if (!habitData.name.trim()) {
+                setTouchedName(true);
                 setError("Please enter a name for the habit.");
-                setTouchedName(true); // para forzar validación si se intentó enviar sin tocar el input
             } else if (habitData.days.length === 0) {
                 setError("Please select at least one day.");
             }
@@ -142,7 +154,7 @@ export default function HabitForm() {
                         ))}
                     </div>
 
-                    {/* Mostrar errores generales (por ejemplo, sin días seleccionados) */}
+                    {/* Error general si se intenta enviar sin días */}
                     {!touchedName && error && <p className="error-message">{error}</p>}
 
                     <button type="submit" disabled={!isFormValid()} className={!isFormValid() ? "disabled" : ""}>
