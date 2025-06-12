@@ -48,20 +48,19 @@ nav {
         gap: 1rem;
 
         li {
-            text-align: center;
-
             a {
                 display: flex;
-                /* gap: 0.5rem; */
+                gap: 0.5rem;
                 align-items: center;
 
                 span {
-                    width: 100%;
+
                     font-size: 1.2rem;
                 }
 
                 i {
                     font-size: 2rem;
+                    width: 2.25rem;
                 }
             }
 

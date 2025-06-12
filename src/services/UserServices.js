@@ -29,3 +29,13 @@ export function logUser(body) {
         body
     })
 }
+
+export function deleteUser(token) {
+    return fetch(`${API_URL}/usuarios`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": token
+        }
+    })
+
+}

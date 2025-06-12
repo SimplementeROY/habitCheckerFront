@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -10,6 +10,7 @@ import Register from './pages/register/register';
 import './index.css';
 import Progression from './pages/progression/progression';
 import Statistics from './pages/statistics/statistics';
+import Profile from './pages/profile/profile';
 
 const root = createRoot(document.getElementById('root'));
 
@@ -37,6 +38,11 @@ function App() {
               <Route path='/statistics' element={
                 <ProtectedRoute>
                   <Statistics />
+                </ProtectedRoute>
+              }></Route>
+              <Route path='/profile' element={
+                <ProtectedRoute>
+                  <Profile />
                 </ProtectedRoute>
               }></Route>
               <Route path="/" element={<Navigate to="/home" replace />} />

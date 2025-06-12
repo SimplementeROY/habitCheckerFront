@@ -20,10 +20,10 @@ const Layout = () => {
                             <li><Link to="/home" onClick={closeSideBar}><i className="fa-solid fa-house"></i><span>Dashboard</span></Link></li>
                             <li><Link to="/progression" onClick={closeSideBar}><i className="fa-solid fa-chart-line"></i><span>Progression</span></Link></li>
                             <li><Link to="/statistics" onClick={closeSideBar}><i className="fa-solid fa-chart-simple"></i><span>Statistics</span></Link></li>
+                            <li><Link to="/profile" onClick={closeSideBar}><i className="fa-solid fa-user"></i><span>Profile</span></Link></li>
                         </ul>
                     </nav>
                     <div className="filler">
-
                     </div>
                 </aside>
                 <div className={isSideBarOpen ? "overlay" : "overlay closed"} onClick={closeSideBar}></div>
